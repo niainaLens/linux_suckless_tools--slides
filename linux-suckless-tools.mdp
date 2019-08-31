@@ -1,0 +1,487 @@
+%title: "ATELIER DU LIBRE" | Linux Suckless Tools
+%author: Niaina Lens
+%date: 2019-08-31
+
+-> LINUX SUCKLESS TOOLS <-
+=========
+
+-> **Tools directly used on shell** <-
+
+```
+											████████╗██╗   ██╗   ██╗
+											╚══██╔══╝██║   ██║   ██║
+											   ██║   ██║   ██║   ██║
+											   ██║   ██║   ██║   ██║
+											   ██║██╗╚██████╔╝██╗██║
+											   ╚═╝╚═╝ ╚═════╝ ╚═╝╚═╝
+```
+
+Best & useful replacements of GUI apps.
+
+- in-Shell Presentation
+- Shell framework
+- Dynamic bash_history
+- File manager
+- Directory jump
+- Image tools
+- Mail client
+- Network tools
+- Services manager
+- JSON processor
+
+***
+-> # 1- MDP: MarkDown Presentation <-
+
+-> **In-shell presentation with markdown** <-
+
+_Syntax_: markdown + native mdp
+
+```
+--> https://github.com/visit1985/mdp
+
+	$ sudo apt install mdp
+	$ mdp my_presentation.mdp
+```
+
+<br>
+\--------------------------------------------------------
+## Alternatives:
+
+- *sent*
+simple plaintext presentation tool
+
+```
+--> https://github.com/hoijui/sent
+
+	$ sudo apt install sent
+	$ sent my_presentation
+```
+
+- *Marp*
+Markdown Presentation Ecosystem
+
+```
+--> https://yhatt.github.io/marp/
+	MARP VSCODE PLUGIN:
+	--> https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode
+	Export: PDF, PPT, HTML
+```
+
+***
+-> # 2- BASH-IT: easy way to use bash <-
+
+-> **Framework for bash: themes, aliases, custom commands/functions, oh-my-zsh_like** <-
+
+```
+--> https://github.com/Bash-it/bash-it
+	$ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+	$ ~/.bash_it/install.sh
+```
+
+Change theme:
+--> https://github.com/Bash-it/bash-it/wiki/Themes --> $BASH_IT/themes
+
+```
+$ vim ~/.bashrc
+	# Use the "powerline-multiline" theme
+	export BASH_IT_THEME="powerline-multiline"
+```
+
+<br>
+\---------------------------------------------------------
+# Alternatives:
+
+- *oh-my-zsh*
+For shell ZSH only
+
+```
+--> https://github.com/robbyrussell/oh-my-zsh
+```
+
+- *fish*
+Friendly interactive shell
+	\- command & options suggestion/autocompletion
+	\- dir & files suggestion/autocompletion
+
+```
+--> https://github.com/fish-shell/fish-shell
+	$ sudo apt install fish
+	$ fish
+_COMPLETE TUTO_ --> https://fishshell.com/docs/current/tutorial.html
+```
+
+***
+-> # 3- FZF: Dynamic bash_history <-
+
+-> **Command-line fuzzy finder** <-
+
+- interactive command history
+- interactive file search *WITH PREVIEW* (text only)
+
+
+```
+--> https://github.com/junegunn/fzf
+
+	$ sudo apt install fzf
+	
+	COMMAND HISTORY: CTRL+R
+	FIND FILE: CTRL+T
+```
+
+***
+
+-> # 4- J: AUTOJUMP to directory <-
+
+-> **Very very fast way to navigate the filesystem** <-
+
+- database of visited directory
+- make bookmark of path
+
+
+```
+--> https://github.com/wting/autojump
+
+	$ sudo apt install autojump
+	$ echo ". /usr/share/autojump/autojump.sh" |cat >> ~/.bashrc
+	$ . ~/.bashrc
+	
+	$ j [directory]
+	$ jc [subdirectory]
+
+	Open dir with file manager
+	$ jo [directory]
+```
+
+<br>
+\----------------------------------------------------
+# Alternatives:
+
+- *fasd*
+Quick access to files and directorie
+
+```
+--> https://github.com/clvv/fasd
+	$ sudo apt install fasd
+```
+
+- *z*
+Jump around
+
+```
+--> https://github.com/rupa/z
+	$ sudo apt install z	
+```
+
+***
+
+-> # 5- RANGER: file manager on shell <-
+
+-> **Interactive shell file manager, WITH PREVIEW (text)** <-
+
+```
+$ sudo apt install ranger
+$ ranger
+```
+
+
+<br>
+\---------------------------------------------
+## Alternatives:
+
+- **nnn**
+Terminal file manager
+
+```
+--> https://github.com/jarun/nnn
+
+	$ sudo apt install nnn
+	$ nnn
+```
+
+- **lf**
+Terminal Light File manager
+
+```
+--> https://github.com/gokcehan/lf
+```
+
+***
+-> # 6- IMAGE TOOLS: Manipulate/convert images on shell <-
+
+- *fim || w3m*
+Image viewer
+
+```
+	$ sudo apt install fim
+	$ fim *.png
+
+	w3m: Document & image browser
+	$ sudo apt install w3m
+	$ w3m image.png
+```
+
+<br>
+- *grabc*
+Color picker
+
+```
+	$ sudo apt installl grabc
+	$ grabc
+```
+
+<br>
+- *convert* (pkg: imagemagick)
+Transform & convert image file
+
+```
+	$ sudo apt install imagemagick
+	$ convert -[input_options] input.file -[output_options] [output_value] output.file
+
+	Convert, Rotate, resize image
+		$ convert input.png -quality 95 output.jpg
+		$ convert input.png -rotate 90 output.png
+		$ convert input.png -resize 1024x768 output.png
+		$ convert input.png -resize 50% output.png
+	Apply effects
+		$ convert input.png -colorspace gray output.png
+	Convert, assemble to pdf
+		$ convert input.png output.pdf
+		$ convert *.png output.pdf
+	Batch processing
+		$ for file in *.png; do convert $file -rotate 90 rotated-$file; done
+```
+
+***
+
+-> # 7- NEOMUTT: Terminal mail client <-
+
+```
+--> https://neomutt.org/
+
+	$ sudo apt install neomutt
+	
+	CONFIG_FILE: /etc/neomuttrc
+		     /etc/neomuttrc.d/gmail.rc
+	"
+	set realname = "Niaina Lens"
+	set from = "niainalens@gmail.com"
+	set use_from = yes
+	set envelope_from = yes
+	set smtp_url = "smtps://niainalens@gmail.com@smtp.gmail.com:465/"
+	set smtp_pass = "*************"
+	set imap_user = "niainalens@gmail.com"
+	set imap_pass = "*************"
+	set folder = "imaps://imap.gmail.com:993"
+	set spoolfile = "+INBOX"
+	set ssl_force_tls = yes
+	set smtp_authenticators = "plain"
+	bind index G imap-fetch-mail
+	set editor = "vim"
+	set charset = "utf-8"
+	set record = ''
+	"
+```
+
+**Features**
+- Sidebar (inbox)
+- inline mail preview
+- offline check: `offlineimap`
+- attachement preview: `mailcap` + `w3m`
+- adress book: `goobook` + `abook`
+- mail indexation: `notmuch`
+
+***
+
+-> # 8- ZATHURA: shell PDF viewer <-
+
+-> **Open PDF file without converting** <-
+
+/!\\ f**k pdf2html, pdftotext, pdftoppm
+
+```
+--> https://github.com/pwmt/zathura
+
+	$ sudo apt install zathura
+	$ zathura file.pdf
+
+```
+
+***
+
+-> # 9- CMUS: Console Music Player <-
+
+-> **Run over MPD (Music Player Daemon)** <-
+
+```
+--> https://cmus.github.io
+
+	$ sudo apt install cmus
+	$ cmus
+	
+	:add /path/to/music/dir
+
+	PLAY/PAUSE: c
+	NEXT: b
+	PREV: z
+	QUEUE: e (TAB 4)
+```
+
+<br>
+\-----------------------------------------------
+**Alternative:**
+
+- *ncmpcpp*
+BUG BUG BUG on Debian 10
+
+***
+-> # 10- SPEED DOC for DEVS <-
+
+- *howdoi
+Instant coding answers via the command line
+
+```
+		$ pip install howdoi
+
+		$ howdoi format date bash
+		$ howdoi markdown title
+```
+
+- *devdocs*
+`--> https://devdocs.io`
+
+- *devhintss*
+`--> http://devhints.io`
+
+***
+
+-> # 11- TIG: T.U.I. for GIT <-
+
+-> **Text-mod interface for git** <-
+
+```
+--> https://github.com/jonas/tig
+
+	$ sudo apt install tig
+	$ cd git_directory
+	$ tig
+```
+
+***
+
+-> # 12- JQ: JSON processor <-
+
+-> **Extract value from JSON file (or remote API)** <-
+
+```
+--> https://stedolan.github.io/jq/
+
+	$ sudo apt install jq
+	
+	file.json
+	| {
+	|   "key1": "value1";
+	|   "key2": "value2"
+	| }
+
+	$ jq '.key1' file.json
+```
+
+***
+-> # 13- WICD-CURSES: Access Point connector <-
+
+-> **menu for wired/wi-fi connection** <-
+
+Debian-based alternative to `wifi-menu` (arch)
+
+```
+	$ sudo apt install wicd-curses
+	$ wicd-curses
+
+	- Select network
+	- C: connect
+	- D: disconnect
+	- R: refresh network list
+```
+
+
+***
+-> # 14- TUI for SERVICE MANAGER <-
+
+- *chkservice*
+list/start/stop services
+
+```
+	$ sudo apt install chkservice
+	$ sudo chkservice
+```
+
+
+- *sysv-rc-conf*
+manage services runlevel
+
+```
+	$ sudo apt install sysv-rc-conf
+	$ sudo sysv-rc-conf
+```
+
+
+***
+
+-> # 15- FUCK <-
+
+**When missing SUDO**
+--> alternative to `$ sudo \!!`
+
+```
+	$ sudo apt install fuck
+	
+	$ apt update
+		... permission denied ...
+	$ fuck
+```
+
+
+<br>
+\---------------------------------------------
+# Alternative:
+
+- *Please*
+
+```
+	$ alias please='sudo'
+
+	$ please apt update
+```
+
+***
+
+```
+				 ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄        ▄  ▄    ▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+				▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░▌      ▐░▌▐░▌  ▐░▌▐░░░░░░░░░░░▌
+				 ▀▀▀▀█░█▀▀▀▀ ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌░▌     ▐░▌▐░▌ ▐░▌ ▐░█▀▀▀▀▀▀▀▀▀ 
+				     ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌▐░▌    ▐░▌▐░▌▐░▌  ▐░▌          
+				     ▐░▌     ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌ ▐░▌   ▐░▌▐░▌░▌   ▐░█▄▄▄▄▄▄▄▄▄ 
+				     ▐░▌     ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌  ▐░▌  ▐░▌▐░░▌    ▐░░░░░░░░░░░▌
+				     ▐░▌     ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌   ▐░▌ ▐░▌▐░▌░▌    ▀▀▀▀▀▀▀▀▀█░▌
+				     ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌    ▐░▌▐░▌▐░▌▐░▌            ▐░▌
+				     ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌     ▐░▐░▌▐░▌ ▐░▌  ▄▄▄▄▄▄▄▄▄█░▌
+				     ▐░▌     ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌      ▐░░▌▐░▌  ▐░▌▐░░░░░░░░░░░▌
+				      ▀       ▀         ▀  ▀         ▀  ▀        ▀▀  ▀    ▀  ▀▀▀▀▀▀▀▀▀▀▀ 
+```
+
+-> # OPENSOURCE PROJECTS <-
+
+-> **Terminal are sexy** <-
+-> `https://terminalsare.sexy` <-
+
+-> **Suckless tools** <-
+-> `https://tools.suckless.org` <-
+
+```
+██╗    ██╗██╗  ██╗ █████╗ ████████╗███████╗        ██╗   ██╗ ██████╗ ██╗   ██╗██████╗ ███████╗    ██████╗ 
+██║    ██║██║  ██║██╔══██╗╚══██╔══╝██╔════╝        ╚██╗ ██╔╝██╔═══██╗██║   ██║██╔══██╗██╔════╝    ╚════██╗
+██║ █╗ ██║███████║███████║   ██║   ███████╗         ╚████╔╝ ██║   ██║██║   ██║██████╔╝███████╗      ▄███╔╝
+██║███╗██║██╔══██║██╔══██║   ██║   ╚════██║          ╚██╔╝  ██║   ██║██║   ██║██╔══██╗╚════██║      ▀▀══╝ 
+╚███╔███╔╝██║  ██║██║  ██║   ██║   ███████║           ██║   ╚██████╔╝╚██████╔╝██║  ██║███████║      ██╗   
+ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝           ╚═╝    ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝      ╚═╝   
+```
