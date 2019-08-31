@@ -1,0 +1,55 @@
+---  LINUX SUCKLESS TOOLS
+
++ uncategorized
+    - fuck
+
++ file_manager
+    - ranger
+    - nnn
+
++ console audio player
+    - ncmpcpp/mpd
+    - moc (mocp)
+
++ image viewer
+    - feh
+    - grabc
+
++ document viewer
+    - zathura
+
++ window_switcher/launcher
+ - rofi
+ - dmenu
+
++ terminal_recorder
+ - asciinema
+ - ffmpeg
+
++ wifi_CLI
+ - wifi-menu (arch)
+ - wicd-curses
+
++ webbrowser_CLI
+ - links
+ - httpie
+
++ versioning_CLI
+ - tig (git_cli)
+
++ contact_adressbook
+ - abook
+
++ mail_client_CLI
+ - mutt / neomutt
+
++ json processor
+    - jq
+
++ service manager
+	- chkservice
+	- sysv-rc-conf
+
++ presentation
+	- mdp
+	- sent
